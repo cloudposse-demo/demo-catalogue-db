@@ -9,7 +9,21 @@ steps:
     dockerfile: Dockerfile
     tag: ${{CF_BRANCH}}
 
-  push-image:
+  push-image-branch:
     type: push
     candidate: ${{build-image}}
     tag: ${{CF_BRANCH}}
+
+  push-image-commit:
+    type: push
+    candidate: ${{build-image}}
+    tag: ${{CF_REVISION}}
+
+  push-image-latest:
+    type: push
+    candidate: ${{build-image}}
+    tag: latest
+    when:
+      condition:
+        all:
+          executeForMasterBranch: "'${{CF_BRANCH}}' == 'master'"
