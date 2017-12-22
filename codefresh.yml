@@ -13,4 +13,3 @@ steps:
     type: push
     candidate: ${{build-image}}
     tag: ${{CF_BRANCH}}
-    registry: dockerhub
