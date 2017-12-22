@@ -1,0 +1,4 @@
+mysql:
+  image: cloudpossedemo/catalogue-db
+  imageTag: 1111
+  imagePullPolicy: Always
