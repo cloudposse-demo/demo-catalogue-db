@@ -5,7 +5,7 @@ steps:
   build-image:
     type: build
     description: Build catalogue db
-    image-name: cloudpossedemo/${{IMAGE_NAME}}
+    image-name: cloudpossedemo/catalogue-db
     dockerfile: Dockerfile
     tag: ${{CF_BRANCH}}
 
