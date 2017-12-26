@@ -9,8 +9,7 @@ steps:
     dockerfile: Dockerfile
 
   build-chart:
-    title: Step Title
-    description: Step description
+    title: Build Charts
     image: cloudposse/build-harness:feature-helm-chart-ops
     working_directory: ${{build-image}}
     commands:
@@ -19,7 +18,7 @@ steps:
       - make helm:chart:build-all
       - make helm:chart:publish
     environment:
-      - GIT_BRANCH = ${{CF_BRANCH}}
+      - GIT_BRANCH=${{CF_BRANCH}}
 
   push-image-branch:
     type: push
