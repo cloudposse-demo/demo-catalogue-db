@@ -18,8 +18,8 @@ steps:
       - make helm:repo:add-remote
       - make helm:chart:build-all
       - make helm:chart:publish
-    env:
-      - GIT_BRANCH=${{CF_BRANCH}}
+    environment:
+      - GIT_BRANCH = ${{CF_BRANCH}}
 
   push-image-branch:
     type: push
