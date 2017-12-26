@@ -24,7 +24,7 @@ steps:
   push-image:
     type: push
     candidate: ${{build-image}}
-    tags: [ ${{CF_BRANCH}}, ${{CF_REVISION}} ]
+    tags: [ ${CF_BRANCH}, ${CF_REVISION} ]
 
   push-image-latest:
     type: push
