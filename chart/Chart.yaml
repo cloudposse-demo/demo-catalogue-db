@@ -1,4 +1,4 @@
 apiVersion: v1
 description: A Helm chart for Kubernetes
 name: catalogue-db
-version: {{ (datasource "chart").version }}
+version: {{ (datasource "semver").version }}

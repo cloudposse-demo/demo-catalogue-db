@@ -1,4 +1,4 @@
 mysql:
   image: cloudpossedemo/catalogue-db
-  imageTag: {{ (datasource "chart").version }}
+  imageTag: {{ (datasource "semver").version }}
   imagePullPolicy: Always
