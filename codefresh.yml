@@ -14,21 +14,17 @@ steps:
     working_directory: ${{build-image}}
     commands:
       - make git:test
+      - make semver:show
       - make helm:repo:add-remote
       - make helm:chart:build-all
       - make helm:chart:publish
     environment:
       - GIT_BRANCH=${{CF_BRANCH}}
 
-  push-image-branch:
+  push-image:
     type: push
     candidate: ${{build-image}}
-    tag: ${{CF_BRANCH}}
-
-  push-image-commit:
-    type: push
-    candidate: ${{build-image}}
-    tag: ${{CF_REVISION}}
+    tags: [ ${{CF_BRANCH}}, ${{CF_REVISION}} ]
 
   push-image-latest:
     type: push
