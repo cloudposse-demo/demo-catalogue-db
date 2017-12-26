@@ -15,7 +15,7 @@ steps:
     image: cloudposse/build-harness:feature-helm-chart-ops
     working_directory: ${{build-image}}
     commands:
-      - make semver:show
+      - make git:test
       - make helm:chart:build-all
       - make helm:chart:publish
     env:
