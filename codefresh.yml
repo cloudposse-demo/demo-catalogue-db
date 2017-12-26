@@ -16,10 +16,11 @@ steps:
     working_directory: ${{build-image}}
     commands:
       - make git:test
+      - make helm:install
       - make helm:chart:build-all
       - make helm:chart:publish
     env:
-      - CHART_NAME=catalogue-db
+      - GIT_BRANCH=${{CF_BRANCH}}
   push-image-branch:
     type: push
     candidate: ${{build-image}}
