@@ -17,6 +17,7 @@ steps:
     commands:
       - make git:test
       - make helm:install
+      - make helm:repo:add-remote
       - make helm:chart:build-all
       - make helm:chart:publish
     env:
