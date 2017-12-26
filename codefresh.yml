@@ -15,8 +15,11 @@ steps:
     image: cloudposse/build-harness:feature-helm-chart-ops
     working_directory: ${{build-image}}
     commands:
-      - make git:test
-
+      - make semver:show
+      - make helm:chart:build-all
+      - make helm:chart:publish
+    env:
+      - CHART_NAME=catalogue-db
   push-image-branch:
     type: push
     candidate: ${{build-image}}
