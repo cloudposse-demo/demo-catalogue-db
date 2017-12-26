@@ -7,7 +7,6 @@ steps:
     description: Build catalogue db
     image-name: cloudpossedemo/catalogue-db
     dockerfile: Dockerfile
-    tag: ${{CF_BRANCH}}
 
   build-chart:
     title: Step Title
@@ -16,12 +15,12 @@ steps:
     working_directory: ${{build-image}}
     commands:
       - make git:test
-      - make helm:install
       - make helm:repo:add-remote
       - make helm:chart:build-all
       - make helm:chart:publish
     env:
       - GIT_BRANCH=${{CF_BRANCH}}
+
   push-image-branch:
     type: push
     candidate: ${{build-image}}
