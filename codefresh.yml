@@ -28,11 +28,6 @@ steps:
       - make helm:chart:build-all
       - make helm:chart:publish
 
-  push-image:
-    type: push
-    candidate: ${{build-image}}
-    tags: [ ${{TAG_LIST}} ]
-
   push-image-latest:
     type: push
     candidate: ${{build-image}}
