@@ -2,6 +2,12 @@
 version: '1.0'
 
 steps:
+  build-image:
+    type: build
+    description: Build catalogue db
+    image-name: cloudpossedemo/catalogue-db
+    dockerfile: Dockerfile
+
   semver:
     title: Export semversion
     image: cloudposse/build-harness:feature-helm-chart-ops
@@ -12,12 +18,6 @@ steps:
       - make semver:export > ${{CF_VOLUME_PATH}}/env_vars_to_expor
     environment:
       - GIT_BRANCH=${{CF_BRANCH}}
-
-  build-image:
-    type: build
-    description: Build catalogue db
-    image-name: cloudpossedemo/catalogue-db
-    dockerfile: Dockerfile
 
   build-chart:
     title: Build Charts
