@@ -2,6 +2,17 @@
 version: '1.0'
 
 steps:
+  semver:
+    title: Export semversion
+    image: cloudposse/build-harness:feature-helm-chart-ops
+    working_directory: ${{build-image}}
+    commands:
+      - make git:show
+      - make semver:show
+      - make semver:export > ${{CF_VOLUME_PATH}}/env_vars_to_expor
+    environment:
+      - GIT_BRANCH=${{CF_BRANCH}}
+
   build-image:
     type: build
     description: Build catalogue db
@@ -13,13 +24,9 @@ steps:
     image: cloudposse/build-harness:feature-helm-chart-ops
     working_directory: ${{build-image}}
     commands:
-      - make git:test
-      - make semver:show
       - make helm:repo:add-remote
       - make helm:chart:build-all
       - make helm:chart:publish
-    environment:
-      - GIT_BRANCH=${{CF_BRANCH}}
 
   push-image:
     type: push
