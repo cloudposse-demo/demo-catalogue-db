@@ -2,6 +2,12 @@
 version: '1.0'
 
 steps:
+  init-variables:
+    title: Init variables
+    image: alpine
+    commands:
+      - cf_export BUILD_HARNESS_VERSION=feature-helm-chart-ops
+
   build-image:
     type: build
     description: Build catalogue db
@@ -10,7 +16,7 @@ steps:
 
   semver:
     title: Export semversion
-    image: cloudposse/build-harness:feature-helm-chart-ops
+    image: cloudposse/build-harness:${{BUILD_HARNESS_VERSION}}
     working_directory: ${{build-image}}
     commands:
       - make git:show
@@ -21,7 +27,7 @@ steps:
 
   build-chart:
     title: Build Charts
-    image: cloudposse/build-harness:feature-helm-chart-ops
+    image: cloudposse/build-harness:${{BUILD_HARNESS_VERSION}}
     working_directory: ${{build-image}}
     commands:
       - make helm:repo:add-remote
