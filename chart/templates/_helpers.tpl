@@ -1,6 +1,6 @@
 {{/*
 Catalogue db hostname
 */}}
-{{- define "template" -}}
+{{- define "catalogue-db.fullname" -}}
 {{- template "mysql.fullname" . -}}
 {{- end -}}
