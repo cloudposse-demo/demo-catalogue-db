@@ -1,3 +1,11 @@
+
+{{/*
+Catalogue db secret name
+*/}}
+{{- define "catalogue-db.secrets.name" -}}
+{{- template "mysql.fullname" . -}}
+{{- end -}}
+
 {{/*
 Catalogue db hostname
 */}}
@@ -6,7 +14,7 @@ Catalogue db hostname
 {{- end -}}
 
 {{/*
-Catalogue db hostname
+Catalogue db port
 */}}
 {{- define "catalogue-db.port" -}}
 {{- .Values.mysql.service.port -}}
