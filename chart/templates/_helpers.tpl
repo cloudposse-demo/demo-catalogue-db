@@ -2,20 +2,20 @@
 {{/*
 Catalogue db secret name
 */}}
-{{- define "catalogue-db.secrets.name" -}}
+{{- define "catalogue_db.secrets.name" -}}
 {{- template "mysql.fullname" . -}}
 {{- end -}}
 
 {{/*
 Catalogue db hostname
 */}}
-{{- define "catalogue-db.host" -}}
+{{- define "catalogue_db.host" -}}
 {{- template "mysql.fullname" . -}}
 {{- end -}}
 
 {{/*
 Catalogue db port
 */}}
-{{- define "catalogue-db.port" -}}
+{{- define "catalogue_db.port" -}}
 {{- .Values.mysql.service.port -}}
 {{- end -}}
