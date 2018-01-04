@@ -2,3 +2,5 @@ mysql:
   image: cloudpossedemo/catalogue-db
   imageTag: {{ (datasource "semver").version }}
   imagePullPolicy: Always
+  mysqlUser: catalogue_user
+  mysqlDatabase: socksdb
