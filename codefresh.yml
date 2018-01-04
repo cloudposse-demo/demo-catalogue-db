@@ -31,6 +31,7 @@ steps:
     working_directory: ${{build-image}}
     commands:
       - make helm:repo:add-remote
+      - make helm:chart:clean
       - make helm:chart:build-all
       - make helm:chart:publish
 
