@@ -34,7 +34,9 @@ steps:
       - make helm:chart:clean
       - make helm:chart:build-all
       - make helm:chart:publish
-
+    environment:
+      - GIT_BRANCH=${{CF_BRANCH}}
+      
   push-image-commit:
     type: push
     candidate: ${{build-image}}
