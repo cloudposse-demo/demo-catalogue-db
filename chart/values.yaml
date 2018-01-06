@@ -3,6 +3,7 @@ mysql:
   imageTag: '{{ (datasource "semver").version }}'
   imagePullPolicy: Always
   mysqlUser: catalogue_user
+  mysqlPassword: catalogue_password
   mysqlDatabase: socksdb
 
   livenessProbe:
