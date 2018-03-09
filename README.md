@@ -1,1 +1,1 @@
-# demo-catalogue-db
+# demo-catalogue-db [![Codefresh build status]( https://g.codefresh.io/api/badges/build?repoOwner=cloudposse-demo&repoName=demo-catalogue-db&branch=master&pipelineName=demo-catalogue-db&accountName=osterman&type=cf-1)]( https://g.codefresh.io/repositories/cloudposse-demo/demo-catalogue-db/builds?filter=trigger:build;branch:master;service:5a3cfa40afef7a00019e2db5~demo-catalogue-db)
