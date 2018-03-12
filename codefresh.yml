@@ -20,19 +20,19 @@ steps:
     image: cloudposse/build-harness:${{BUILD_HARNESS_VERSION}}
     working_directory: ${{build-image}}
     commands:
-      - make git:show
-      - make semver:show
-      - make semver:export >> ${{CF_VOLUME_PATH}}/env_vars_to_export
+      - make git/show
+      - make semver/show
+      - make semver/export >> ${{CF_VOLUME_PATH}}/env_vars_to_export
 
   build-chart:
     title: Build Charts
     image: cloudposse/build-harness:${{BUILD_HARNESS_VERSION}}
     working_directory: ${{build-image}}
     commands:
-      - make helm:repo:add-remote
-      - make helm:chart:clean
-      - make helm:chart:build-all
-      - make helm:chart:publish
+      - make helm/repo/add-remote
+      - make helm/chart/clean
+      - make helm/chart/build-all
+      - make helm/chart/publish
 
   push-image-commit:
     type: push
